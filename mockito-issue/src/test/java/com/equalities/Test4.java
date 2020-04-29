@@ -11,6 +11,7 @@ import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -26,7 +27,7 @@ public class Test4 {
   @Test
   void testFunctionOverloading() throws MalformedURLException {
     
-    when(tokenClient.fetchToken(any(URL.class), anyString(), anyString(), any(Duration.class))).thenReturn(token);
+    when(tokenClient.fetchToken(any(URL.class), anyString(), anyString(), (Duration) ArgumentMatchers.isNull())).thenReturn(token);
     
     tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password", null);
   }

@@ -7,9 +7,11 @@ import static org.mockito.Mockito.when;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.time.Duration;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -25,7 +27,7 @@ public class Test1 {
   @Test
   void testFunctionOverloading() throws MalformedURLException {
     
-    when(tokenClient.fetchToken(any(URL.class), anyString(), anyString())).thenReturn(token);
+    when(tokenClient.fetchToken(any(URL.class), anyString(), anyString(), (Duration) ArgumentMatchers.isNull())).thenReturn(token);
     
     TokenProvider provider = new TokenProvider(tokenClient);
     provider.getToken(URI.create("http://test.com").toURL(), "username", "password");
