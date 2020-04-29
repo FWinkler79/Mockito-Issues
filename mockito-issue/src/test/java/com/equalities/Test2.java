@@ -30,9 +30,5 @@ public class Test2 {
     
     TokenProvider provider = new TokenProvider(tokenClient);
     provider.getToken(URI.create("http://test.com").toURL(), "username", "password");
-
-    //tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password");
-    //tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password", null);
-    //tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password", Duration.ofHours(4));
   }
 }

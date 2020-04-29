@@ -29,6 +29,5 @@ public class Test4 {
     when(tokenClient.fetchToken(any(URL.class), anyString(), anyString(), any(Duration.class))).thenReturn(token);
     
     tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password", null);
-    //tokenClient.fetchToken(URI.create("http://test.com").toURL(), "username", "password", Duration.ofHours(4));
   }
 }
